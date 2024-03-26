@@ -134,6 +134,8 @@
     <ClInclude Include="Rooms.h" />
     <ClInclude Include="Students.h" />
     <ClInclude Include="Teachers.h" />
+    <ClInclude Include="Timetable.h" />
+    <ClInclude Include="TimetableManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

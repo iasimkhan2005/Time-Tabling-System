@@ -32,5 +32,11 @@
     <ClInclude Include="Courses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Timetable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimetableManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
