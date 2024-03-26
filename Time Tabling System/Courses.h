@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+#include <vector>
+#include <string>
 class Courses
 {
 public:
@@ -10,4 +13,3 @@ public:
     string startTime;
     string endTime;
 };
-
