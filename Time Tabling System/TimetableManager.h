@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 using namespace std;
@@ -11,6 +12,7 @@ public:
     void addCourse(const Courses &course)
     {
         timetable.courses.push_back(course);
+        Timetable timetable();
     }
 
     bool isClassAvailable(const string &day, const string &startTime, const string &roomId)
