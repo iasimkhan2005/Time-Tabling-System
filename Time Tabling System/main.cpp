@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include "Students.h"
@@ -15,15 +16,13 @@ int main()
     char choice;
     Courses course;
     TimetableManager manager;
-    cout << "4. Add Course\n";
     ofstream outFile("timetable.txt", ios::app); // Open a file for writing
-    if (!outFile.is_open())
-    {
+    if (!outFile.is_open()){
         cerr << "Error opening file!" << endl;
         return 1;
     }
 
-    cout << "TIMETABKE SYSTEM\n";
+    cout << "TIMETABLE SYSTEM\n";
     cout << "1. Enroll course\n";
     cout << "Enter choice: ";
     cin >> choice;
@@ -32,9 +31,9 @@ int main()
     {
     case '1':
         cin >> course.courseId;
+        cin.ignore();
         getline(cin, course.courseName);
         getline(cin, course.teacher.name);
-        cin.ignore();
         cin >> course.dayOfWeek;
         cin >> course.startTime;
         cin >> course.endTime;
@@ -45,38 +44,9 @@ int main()
         cout << "course added successfully" << endl;
         break;
 
-    default:
+     default:
+        cout << "....... Invalid Choice! .......\n";
         break;
-    }
-            break;
-
-        case '3':
-            ViewMenu();
-            system("pause");
-            break;
-
-        case 'X':
-        case 'x':
-            exit(1); // exits the loop and closes the program
-            break;
-
-        default:
-            cout << "....... Invalid Choice! .......\n";
-            break;
-        }
 
     } while (true);
-        cin >> course.dayOfWeek;
-        cin >> course.startTime;
-        cin >> course.endTime;
-
-        manager.addCourse(course);
-        course.writeToFile(outFile);
-        outFile.close();
-        cout << "course added successfully" << endl;
-        break;
-
-    default:
-        break;
-    }
 }

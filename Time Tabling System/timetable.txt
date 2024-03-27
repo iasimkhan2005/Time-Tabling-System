@@ -1,6 +1,12 @@
 Course ID: CPC
 Course Name: OOP
-Teacher: Tamim
+Teacher: Waleed
 Day: Monday
-Time: 8:00 - 9:00
+Time: 8:30 - 9:30
+------------------------
+Course ID: CPC
+Course Name: CP
+Teacher: Raja
+Day: Monday
+Time: 9:30 - 10:30
 ------------------------
