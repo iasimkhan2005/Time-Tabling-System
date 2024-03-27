@@ -42,14 +42,16 @@ public:
         return courseName;
     }
 
-    Teachers getTeacher() const
+    Teachers* getTeacher() const
     {
-        return *teacher;
+        return teacher;
     }
-    Rooms *getAssignedRoom() const;
+    /*Rooms *getAssignedRoom() const;
     Sections *getAssignedSection() const;
-    Time *getAssignedTime() const;
-    void setAssignedSection(Sections *section);
+    Time *getAssignedTime() const;*/
+    void setAssignedSection(Sections* section) {
+		assignedSection = section;
+    }
 
     vector<Students *> getEnrolledStudents() const
     {

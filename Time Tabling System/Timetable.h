@@ -67,7 +67,7 @@ public:
 				// Iterate over courses for the section
 				for (const auto &courseTimeRoomTuple : sectionPair.second)
 				{
-					Teachers *teacher = &get<0>(courseTimeRoomTuple)->getTeacher();
+					Teachers* teacher = get<0>(courseTimeRoomTuple)->getTeacher();
 					teacherCourses[teacher].push_back(courseTimeRoomTuple);
 				}
 			}
