@@ -8,14 +8,7 @@
 #include "Timetable.h"
 #include "TimetableManager.h"
 using namespace std;
-// {
-//     cout << "\n---------- VIEW MENU ----------\n";
-//     cout << "1. View Students\n";
-//     cout << "2. View Teachers\n";
-//     cout << "3. View Rooms\n";
-//     cout << "4. View Courses\n";
-//     cout << "5. View Timetables\n";
-// }
+
 
 int main()
 {
