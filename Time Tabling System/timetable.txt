@@ -1,0 +1,6 @@
+Course ID: CPC
+Course Name: OOP
+Teacher: Tamim
+Day: Monday
+Time: 8:00 - 9:00
+------------------------
