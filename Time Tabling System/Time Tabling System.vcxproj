@@ -132,8 +132,10 @@
   <ItemGroup>
     <ClInclude Include="Courses.h" />
     <ClInclude Include="Rooms.h" />
+    <ClInclude Include="Sections.h" />
     <ClInclude Include="Students.h" />
     <ClInclude Include="Teachers.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="Timetable.h" />
     <ClInclude Include="TimetableManager.h" />
   </ItemGroup>
