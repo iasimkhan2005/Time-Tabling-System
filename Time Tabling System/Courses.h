@@ -19,19 +19,20 @@ private:
     string courseName;
     Rooms *assignedRoom;
     Teachers *teacher;
+	Students* student;
     Sections *assignedSection;
     Time *assignedTime;
     map<int, string> student_data;
 
 public:
     vector<Students *> enrolledStudents;
-
+	Courses();
     Courses(int courseCode, const string &courseName, Teachers *teacher, Rooms *assignedRoom) : courseCode(courseCode), courseName(courseName), teacher(teacher), assignedRoom(assignedRoom), assignedSection(nullptr), assignedTime(nullptr) {}
 
-    // void addStudent(Students student)
-    // {
-    //     student_data[student.getStudentID()] = studentCode;
-    // }
+     void addStudent(Students* student)
+     {
+		 enrolledStudents.push_back(student);
+     }
     // void removeStudent(Students student)
     // {
     //     student_data[student.getStudentID()].erase();
@@ -53,7 +54,7 @@ public:
 		assignedSection = section;
     }
 
-    vector<Students *> getEnrolledStudents() const
+    vector<Students*> getEnrolledStudents() const
     {
         return enrolledStudents;
     }

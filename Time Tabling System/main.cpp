@@ -14,33 +14,51 @@ void menu()
 {
     char choice;
     Timetable timetable;
-
-    cout << "\t\tWelcome to Bahria University Time Tabling System\n";
-    cout << "\t\tPlease select an option from the following list:\n";
-    cout << "\t\t1. Teacher Wise Timetable.\n";
-    cout << "\t\t2. Student Wise Timetable.\n";
-    cout << "\t\t3. Section Wise Timetable.\n";
-    cout << "\t\t4. Queries Wise Timetable\n";
-    cout << "\t\t5. Exit\n";
-    cout << "\t\tEnter your choice: ";
-    cin >> choice;
-    switch (choice)
+    do
     {
-    case '1':
-        system("cls");
-        timetable.teacherTimetable();
-        break;
+    system("cls");
+    cout << "-------------- Welcome to University Time Tabling System --------------\n";
+        cout << "Please select an option from the following list:\n";
+        cout << "1. Teacher Wise Timetable.\n";
+        cout << "2. Student Wise Timetable.\n";
+        cout << "3. Section Wise Timetable.\n";
+        cout << "4. Queries Wise Timetable\n";
+        cout << "5. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+        switch (choice)
+        {
+        case '1':
+            system("cls");
+            timetable.teacherTimetable();
+            system("pause");
+            break;
 
-        // case '2':
-        //     system("cls");
-        //     timetable.studentTimetable();
-        //     break;
+        case '2':
+            system("cls");
+            timetable.studentTimetable();
+            system("pause");
+            break;
 
-    case '3':
-        system("cls");
-        timetable.sectionTimetable();
-        break;
-    }
+        case '3':
+            system("cls");
+            timetable.sectionTimetable();
+			system("pause");
+            break;
+		case '4':
+			system("cls");
+			/*timetable.queriesTimetable();*/
+            system("pause");
+            break;
+		case '5':
+			exit(0);
+			
+		default:
+			cout << "Invalid choice\n";
+			break;
+		
+	     }
+    } while (true);
 }
 
 int main()
@@ -64,13 +82,14 @@ int main()
     Courses course2(232, "OOP - Lab ", teacher2, &room2);
 
     // REGISTRATION INFO
-    // course1.addStudent(student1);
+     /*course1.addStudent(student1);*/
     // course1.addStudent(student2);
     // course2.addStudent(student1);
     // course2.addStudent(student2);
 
     // MAIN MENU
-     menu();
+    
+    menu();
     return 0;
 }
 
