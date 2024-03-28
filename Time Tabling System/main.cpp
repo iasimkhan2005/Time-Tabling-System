@@ -26,17 +26,23 @@ void menu()
         cout << "5. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
+        string teacher_name;
+        string student_name;
         switch (choice)
         {
         case '1':
             system("cls");
-            timetable.teacherTimetable();
+            cout << "Enter the Teacher Name:";
+            cin >> teacher_name;
+            timetable.teacherTimetable(teacher_name);
             system("pause");
             break;
 
         case '2':
             system("cls");
-            timetable.studentTimetable();
+            cout << "Enter the Student Name:";
+            cin >> student_name;
+            timetable.studentTimetable(student_name);
             system("pause");
             break;
 
@@ -92,4 +98,3 @@ int main()
     menu();
     return 0;
 }
-

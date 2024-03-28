@@ -59,10 +59,10 @@ public:
 		sectionCourses["Tuesday"][section1->getName()].push_back(make_tuple(course3, times[0], room2));
 	}
 
-	void teacherTimetable()
+	void teacherTimetable(string T_name)
 	{
 		buildTimetable();
-
+		bool found = false;
 		// Map of teacher -> courses
 		map<Teachers *, vector<tuple<Courses *, Time *, Rooms *>>> teacherCourses;
 
@@ -87,7 +87,7 @@ public:
 			{
 				Teachers *teacher = teacherCoursePair.first;
 				vector<tuple<Courses *, Time *, Rooms *>> courses = teacherCoursePair.second;
-				if (teacher->getName() == "Tamim")
+				if (teacher->getName() == T_name)
 				{
 					cout << "Teacher: " << teacher->getName() << endl;
 					for (const auto &courseTimeRoomTuple : courses)
@@ -98,8 +98,19 @@ public:
 						cout << "Course: " << course->getCourseName() << "\n Time: " << time->getStartTime() << " - " << time->getEndTime() << "\nRoom: " << room->getRoomNumber() << endl;
 					}
 				}
+				else
+				{
+					found = true;
+				}
 				cout << endl;
 			}
+		}
+		if (found)
+		{
+		
+	
+			cout << "Not Found Student with this name" << endl;
+		
 		}
 		cout << "----------------------------------------------------------------------" << endl;
 	}
@@ -142,7 +153,7 @@ public:
 		}
 		cout << "----------------------------------------------------------------------" << endl;
 	}
-	void studentTimetable()
+	void studentTimetable(string S_name)
 	{
 		buildTimetable();
 
@@ -173,7 +184,7 @@ public:
 			{
 				Students* student = studentCoursePair.first;
 				vector<tuple<Courses*, Time*, Rooms*>> courses = studentCoursePair.second;
-				if (student->getstudentname() == "Asim") // Change to the student's name
+				if (student->getstudentname() == S_name) 
 				{
 					cout << "Student: " << student->getstudentname() << endl;
 					for (const auto& courseTimeRoomTuple : courses)
@@ -183,6 +194,10 @@ public:
 						Rooms* room = get<2>(courseTimeRoomTuple);
 						cout << "Course: " << course->getCourseName() << "\n Time: " << time->getStartTime() << " - " << time->getEndTime() << "\n Room: " << room->getRoomNumber() << endl;
 					}
+				}
+				else
+				{
+					cout << "Not Found Student with this name";
 				}
 				cout << endl;
 			}
