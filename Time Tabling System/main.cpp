@@ -16,8 +16,8 @@ void menu()
     Timetable timetable;
     do
     {
-    system("cls");
-    cout << "-------------- Welcome to University Time Tabling System --------------\n";
+        system("cls");
+        cout << "-------------- Welcome to University Time Tabling System --------------\n";
         cout << "Please select an option from the following list:\n";
         cout << "1. Teacher Wise Timetable.\n";
         cout << "2. Student Wise Timetable.\n";
@@ -49,21 +49,38 @@ void menu()
         case '3':
             system("cls");
             timetable.sectionTimetable();
-			system("pause");
-            break;
-		case '4':
-			system("cls");
-			/*timetable.queriesTimetable();*/
             system("pause");
             break;
-		case '5':
-			exit(0);
-			
-		default:
-			cout << "Invalid choice\n";
-			break;
-		
-	     }
+        case '4':
+            system("cls");
+            cout << "Select query type:\n";
+            cout << "1. Query by day\n";
+            cout << "2. Query by day and start time\n";
+            cout << "Enter your choice: ";
+            char queryChoice;
+            cin >> queryChoice;
+            if (queryChoice == '1')
+            {
+                timetable.queriesTimetable("day");
+            }
+            else if (queryChoice == '2')
+            {
+                timetable.queriesTimetable("time_and_day");
+            }
+            else
+            {
+                cout << "Invalid query type." << endl;
+            }
+            system("pause");
+            break;
+
+        case '5':
+            exit(0);
+
+        default:
+            cout << "Invalid choice\n";
+            break;
+        }
     } while (true);
 }
 
@@ -88,13 +105,13 @@ int main()
     Courses course2(232, "OOP - Lab ", teacher2, &room2);
 
     // REGISTRATION INFO
-     /*course1.addStudent(student1);*/
+    /*course1.addStudent(student1);*/
     // course1.addStudent(student2);
     // course2.addStudent(student1);
     // course2.addStudent(student2);
 
     // MAIN MENU
-    
+
     menu();
     return 0;
 }
