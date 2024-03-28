@@ -1,0 +1,41 @@
+Day: Monday
+Section: BSE-2A
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Section: BSE-2B
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Day: Tuesday
+Section: BSE-2A
+Course: LA
+Time: 8:30 - 9:30
+Room: 4-02
+
+Course: LA
+Time: 8:30 - 9:30
+Room: 4-02
+
+Course: LA
+Time: 8:30 - 9:30
+Room: 4-02
+

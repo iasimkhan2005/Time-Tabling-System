@@ -1,0 +1,42 @@
+Day: Monday
+Student: Hashir
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Student: Asim
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Student: Hashir
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Student: Asim
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Student: Hashir
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Student: Asim
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Student: Hashir
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Student: Asim
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Day: Tuesday

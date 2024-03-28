@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <vector>
 #include <map>
@@ -278,6 +279,114 @@ public:
 		}
 
 		cout << "----------------------------------------------------------------------" << endl;
+	}
+
+	void writeTeacherTimetableToFile(string fileName)
+	{
+		ofstream outFile(fileName);
+		if (!outFile)
+		{
+			cerr << "Error opening file " << fileName << endl;
+			return;
+		}
+
+		buildTimetable();
+
+		// Write teacher timetable to file
+		for (const auto &day : sectionCourses)
+		{
+			outFile << "Day: " << day.first << endl;
+
+			for (const auto &sectionPair : day.second)
+			{
+				for (const auto &courseTimeRoomTuple : sectionPair.second)
+				{
+					Teachers *teacher = get<0>(courseTimeRoomTuple)->getTeacher();
+					if (teacher)
+					{
+						outFile << "Teacher: " << teacher->getName() << endl;
+						outFile << "Course: " << get<0>(courseTimeRoomTuple)->getCourseName() << endl;
+						outFile << "Time: " << get<1>(courseTimeRoomTuple)->getStartTime() << " - " << get<1>(courseTimeRoomTuple)->getEndTime() << endl;
+						outFile << "Room: " << get<2>(courseTimeRoomTuple)->getRoomNumber() << endl;
+						outFile << endl;
+					}
+				}
+			}
+		}
+
+		outFile.close();
+		cout << "Teacher timetable has been written to " << fileName << endl;
+	}
+
+	void writeStudentTimetableToFile(string fileName)
+	{
+		ofstream outFile(fileName);
+		if (!outFile)
+		{
+			cerr << "Error opening file " << fileName << endl;
+			return;
+		}
+
+		buildTimetable();
+
+		// Write student timetable to file
+		for (const auto &day : sectionCourses)
+		{
+			outFile << "Day: " << day.first << endl;
+
+			for (const auto &sectionPair : day.second)
+			{
+				for (const auto &courseTimeRoomTuple : sectionPair.second)
+				{
+					vector<Students *> enrolledStudents = get<0>(courseTimeRoomTuple)->getEnrolledStudents();
+					for (Students *student : enrolledStudents)
+					{
+						outFile << "Student: " << student->getstudentname() << endl;
+						outFile << "Course: " << get<0>(courseTimeRoomTuple)->getCourseName() << endl;
+						outFile << "Time: " << get<1>(courseTimeRoomTuple)->getStartTime() << " - " << get<1>(courseTimeRoomTuple)->getEndTime() << endl;
+						outFile << "Room: " << get<2>(courseTimeRoomTuple)->getRoomNumber() << endl;
+						outFile << endl;
+					}
+				}
+			}
+		}
+
+		outFile.close();
+		cout << "Student timetable has been written to " << fileName << endl;
+	}
+
+	void writeSectionTimetableToFile(string fileName)
+	{
+		ofstream outFile(fileName);
+		if (!outFile)
+		{
+			cerr << "Error opening file " << fileName << endl;
+			return;
+		}
+
+		buildTimetable();
+
+		// Write section timetable to file
+		for (const auto &day : sectionCourses)
+		{
+			outFile << "Day: " << day.first << endl;
+
+			for (const auto &sectionPair : day.second)
+			{
+				outFile << "Section: " << sectionPair.first << endl;
+
+				for (const auto &courseTimeRoomTuple : sectionPair.second)
+				{
+					outFile << "Course: " << get<0>(courseTimeRoomTuple)->getCourseName() << endl;
+					outFile << "Time: " << get<1>(courseTimeRoomTuple)->getStartTime() << " - " << get<1>(courseTimeRoomTuple)->getEndTime() << endl;
+					outFile << "Room: " << get<2>(courseTimeRoomTuple)->getRoomNumber() << endl;
+					outFile << endl;
+				}
+			}
+		}
+
+		outFile.close();
+		cout << "Section timetable has been written to " << fileName << endl;
 	}
 
 	vector<Time *> createTimeSlots()

@@ -1,0 +1,17 @@
+Day: Monday
+Teacher: Waleed
+Course: CP
+Time: 8:30 - 9:30
+Room: 4-01
+
+Teacher: Tamim
+Course: OOP
+Time: 9:30 - 10:30
+Room: 4-03
+
+Day: Tuesday
+Teacher: Zubair
+Course: LA
+Time: 8:30 - 9:30
+Room: 4-02
+

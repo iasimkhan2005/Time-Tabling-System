@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <map>
 #include <vector>
 #include "Students.h"
@@ -75,13 +76,13 @@ void menu()
             break;
 
         case '5':
-            exit(0);
+            break;
 
         default:
             cout << "Invalid choice\n";
             break;
         }
-    } while (true);
+    } while (choice != '5');
 }
 
 int main()
@@ -92,7 +93,7 @@ int main()
     Students student2(15, "Asim", "01-131232-015@bahria.com", "BSE-2A");
 
     // TEACHERS INFO
-    Teachers *teacher1 = new Teachers("SIR-Tamin", 101, "Tamin123@bahria.com");
+    Teachers *teacher1 = new Teachers("SIR-Tamim", 101, "Tamin123@bahria.com");
     Teachers *teacher2 = new Teachers("SIR-Waleed", 102, "Waleed123@bahria.com");
 
     // ROOMS INFO
@@ -113,5 +114,19 @@ int main()
     // MAIN MENU
 
     menu();
+
+    Timetable timetable;
+
+    // Write teacher timetable to file
+    timetable.writeTeacherTimetableToFile("teacher_timetable.txt");
+
+    // Write student timetable to file
+    timetable.writeStudentTimetableToFile("student_timetable.txt");
+
+    // Write section timetable to file
+    timetable.writeSectionTimetableToFile("section_timetable.txt");
+
+    cout << "Timetables have been written to respective files." << endl;
+
     return 0;
 }
