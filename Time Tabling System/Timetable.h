@@ -63,6 +63,9 @@ public:
 	{
 		buildTimetable();
 		bool found = false;
+	
+
+
 		// Map of teacher -> courses
 		map<Teachers *, vector<tuple<Courses *, Time *, Rooms *>>> teacherCourses;
 
@@ -81,7 +84,7 @@ public:
 					teacherCourses[teacher].push_back(courseTimeRoomTuple);
 				}
 			}
-
+			
 			// Display teacher timetable for the current day
 			for (const auto &teacherCoursePair : teacherCourses)
 			{
@@ -98,18 +101,11 @@ public:
 						cout << "Course: " << course->getCourseName() << "\n Time: " << time->getStartTime() << " - " << time->getEndTime() << "\nRoom: " << room->getRoomNumber() << endl;
 					}
 				}
-				else
-				{
-					found = true;
-				}
+				
 				cout << endl;
 			}
 		}
-		if (found)
-		{
-
-			cout << "Not Found Teacher with this name" << endl;
-		}
+		
 		cout << "----------------------------------------------------------------------" << endl;
 	}
 
@@ -157,7 +153,7 @@ public:
 
 		// Map of student -> courses
 		map<Students *, vector<tuple<Courses *, Time *, Rooms *>>> studentCourses;
-
+		bool found = true;
 		// Iterate over days
 		for (const auto &day : sectionCourses)
 		{
@@ -178,7 +174,7 @@ public:
 			}
 
 			// Display student timetable for the current day
-			bool found = true;
+		
 			for (const auto &studentCoursePair : studentCourses)
 			{
 				Students *student = studentCoursePair.first;
@@ -195,16 +191,10 @@ public:
 					}
 					cout << endl;
 				}
-				else
-				{
-					found = false;
-				}
-			}
-			if (!found)
-			{
-				cout << "Not Found Student with this name\n";
+				
 			}
 		}
+			
 		cout << "----------------------------------------------------------------------" << endl;
 	}
 
