@@ -21,14 +21,15 @@ private:
 public:
 	void buildTimetable()
 	{
+		// ROOMS INFO
 		Rooms *room1 = new Rooms("4-01", 50);
 		Rooms *room2 = new Rooms("4-02", 50);
 		Rooms *room3 = new Rooms("4-03", 50);
 		Rooms *room4 = new Rooms("4-04", 50);
-
+		// STUDENTS INFO
 		Students *student1 = new Students(59, "Hashir", "01-131232-059@bahria.com", "BSE-2A");
 		Students *student2 = new Students(15, "Asim", "01-131232-015@bahria.com", "BSE-2A");
-
+		// TEACHERS INFO
 		Teachers *teacher1 = new Teachers("Waleed", 201, "Waleed123@gmail.com");
 		Teachers *teacher2 = new Teachers("Tamim", 200, "Tamim@gmail.com");
 		Teachers *teacher3 = new Teachers("Zubair", 150, "Zubair@gmail.com");
@@ -38,7 +39,7 @@ public:
 		// Create sections
 		Sections *section1 = new Sections("BSE-2A");
 		Sections *section2 = new Sections("BSE-2B");
-
+		// COURSES INFO
 		// Create courses and assign sections
 		Courses *course1 = new Courses(403, "CP", teacher1, room1);
 		course1->setAssignedSection(section1);
@@ -55,6 +56,7 @@ public:
 		sectionCourses["Monday"][section1->getName()].push_back(make_tuple(course1, times[0], room1));
 		sectionCourses["Monday"][section2->getName()].push_back(make_tuple(course2, times[1], room3));
 		sectionCourses["Tuesday"][section1->getName()].push_back(make_tuple(course3, times[0], room2));
+		sectionCourses["Tuesday"][section1->getName()].push_back(make_tuple(course3, times[2], room4));
 	}
 
 	void teacherTimetable(string T_name)
@@ -200,7 +202,7 @@ public:
 			}
 			if (!found)
 			{
-				cout << "Not Found Student with this name";
+				cout << "Not Found Student with this name\n";
 			}
 		}
 		cout << "----------------------------------------------------------------------" << endl;
@@ -246,31 +248,42 @@ public:
 			cin >> day;
 			cout << "Enter the start time (e.g., 8:30): ";
 			cin >> startTime;
+			bool checktime = false;
 
 			// Check if the day exists in the timetable
 			if (sectionCourses.find(day) != sectionCourses.end())
-			{
-				// Display timetable for the specified day and start time
-				cout << "Timetable for " << day << " starting from " << startTime << ":" << endl;
-				for (const auto &sectionPair : sectionCourses[day])
-				{
-					for (const auto &courseTuple : sectionPair.second)
+			{	
+				
+					// Display timetable for the specified day and start time
+					cout << "Timetable for " << day << " starting from " << startTime << ":" << endl;
+					for (const auto& sectionPair : sectionCourses[day])
 					{
-						Time *time = get<1>(courseTuple);
-						if (time->getStartTime() == startTime)
+						for (const auto& courseTuple : sectionPair.second)
 						{
-							Courses *course = get<0>(courseTuple);
-							Rooms *room = get<2>(courseTuple);
-							cout << "Section: " << sectionPair.first << endl;
-							cout << "Course: " << course->getCourseName() << "\nTime: " << time->getStartTime() << " - " << time->getEndTime() << "\nRoom: " << room->getRoomNumber() << endl;
-							cout << endl;
+							Time* time = get<1>(courseTuple);
+							if (time->getStartTime() == startTime)
+							{
+								Courses* course = get<0>(courseTuple);
+								Rooms* room = get<2>(courseTuple);
+								cout << "Section: " << sectionPair.first << endl;
+								cout << "Course: " << course->getCourseName() << "\nTime: " << time->getStartTime() << " - " << time->getEndTime() << "\nRoom: " << room->getRoomNumber() << endl;
+								cout << endl;
+							}
+							else
+							{
+								checktime = true;
+							}
 						}
 					}
-				}
+				
+				
 			}
-			else
+			else if (checktime)
 			{
-				cout << "No timetable available for the specified day." << endl;
+				cout << "No timetable available for the specified day and time." << endl;
+			}
+			else {
+				cout << "No timetable available for the specified day and time." << endl;
 			}
 		}
 		else

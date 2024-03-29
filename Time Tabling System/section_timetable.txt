@@ -32,10 +32,22 @@ Time: 8:30 - 9:30
 Room: 4-02
 
 Course: LA
-Time: 8:30 - 9:30
-Room: 4-02
+Time: 10:30 - 11:30
+Room: 4-04
 
 Course: LA
 Time: 8:30 - 9:30
 Room: 4-02
+
+Course: LA
+Time: 10:30 - 11:30
+Room: 4-04
+
+Course: LA
+Time: 8:30 - 9:30
+Room: 4-02
+
+Course: LA
+Time: 10:30 - 11:30
+Room: 4-04
 
